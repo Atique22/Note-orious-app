@@ -20,10 +20,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         LinearLayout scrollLayout = findViewById(R.id.linearlayout);
-        Button historyText;
+        Button [] historyText = new Button[30];
         ImageButton addNoteBtn;
-        historyText = new Button(getApplicationContext());
-        scrollLayout.addView(historyText);
+        for (int i = 0; i < 30; i++) {
+            Button button = new Button(getApplicationContext());
+            button.setText("Button " + i);
+            historyText[i] = button;
+            scrollLayout.addView(historyText[i]);
+        }
 //        scrollLayout.addView(historyText);
 //        scrollLayout.addView(historyText);
         addNoteBtn = findViewById(R.id.createBtn);
