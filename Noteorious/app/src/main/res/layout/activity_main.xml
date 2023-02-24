@@ -2,21 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/noteAdd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbarSize="10dp"
-    tools:context=".MainActivity" >
-
-    <ImageView
-        android:id="@+id/createBtn"
-        android:layout_width="74dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -24,9 +13,7 @@
         android:layout_height="26dp"
         android:layout_marginStart="75dp"
         android:layout_marginTop="46dp"
-        android:layout_marginEnd="48dp"
         android:text="Click + to create a note"
-        app:layout_constraintEnd_toStartOf="@+id/createBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,9 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createBtn"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/linearlayout"
@@ -50,4 +35,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/createBtn"
+        android:layout_width="71dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="33dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>
