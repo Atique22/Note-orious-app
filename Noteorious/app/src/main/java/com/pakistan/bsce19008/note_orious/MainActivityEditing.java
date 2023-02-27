@@ -39,7 +39,7 @@ public class MainActivityEditing extends AppCompatActivity {
                         // Create a new file and write the text to it
                         try {
                             //internal storage
-                            String data = new String(messageText.toString());
+                            String data = new String(messageText.getText().toString().getBytes());
                             File dir = getFilesDir();
                             File createFile = new File(dir, fileName);
                             FileWriter fw = new FileWriter(createFile);
@@ -52,7 +52,15 @@ public class MainActivityEditing extends AppCompatActivity {
                         }
                     }
                 });
-                thread.start();
+                if(messageText.length()>0){
+                    Log.d("************************", "loading: creating file.....*****************: ");
+                    thread.start();
+                    Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(i);
+                }else {
+                    Log.d("************************", "errors occurs:in creating file.....*****************: ");
+                    Toast.makeText(getApplicationContext(),"File is empty please add text!",Toast.LENGTH_LONG).show();
+                }
 
             }
         });

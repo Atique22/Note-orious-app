@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -20,8 +21,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,35 +34,54 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         LinearLayout scrollLayout = findViewById(R.id.linearlayout);
         ImageButton addNoteBtn;
-
         ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
         File directory = contextWrapper.getFilesDir();
         File[] files = directory.listFiles();
-        Button [] historyText = new Button[files.length];
+        int i=0;
         for (File file : files) {
-            int i=0;
             if (file.isFile()) {
-                // Do something with the file, such as displaying its name on the screen
                 String fileName = file.getName();
-                Button button = new Button(getApplicationContext());
-                Log.d("File Name", fileName);
-                // Assume editingText is the reference to the AppCompatEditText object
-//                AppCompatEditText editingText = findViewById(R.id.editingText);
+                Log.d("*******************File Name", fileName);
+                if (file.length() > 0) {
+                    try {
+                        FileInputStream myFileInput = openFileInput(fileName);
+                        BufferedReader readData = new BufferedReader(new InputStreamReader(myFileInput));
+                        String myTextFile = readData.readLine();
+                        if (myTextFile.length() > 30) {
+                            String shortStr = myTextFile.substring(0, 30);
+                            myTextFile = i + " : " + shortStr + ".....";
+                        } else {
+                            myTextFile = i + " : " + myTextFile + ".....";
+                        }
+                        Log.d("++++++++++++++++++++++File Content", myTextFile);
+                        TextView text = new TextView(this);
+                        text.setText(myTextFile);
+                        text.setPadding(20, 20, 20, 20); // Set padding to 20 pixels on all sides
+                        scrollLayout.addView(text);
+                        text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent i = new Intent(getApplicationContext(),MainActivityView.class);
+                                String myFile = fileName.toString();
+                                i.putExtra("filename", myFile);
+                                startActivity(i);
+                                Toast.makeText(getApplicationContext(),"clicked ****"+fileName,Toast.LENGTH_LONG).show();
+                            }
+                        });
 
-                button.setText(fileName);
-                historyText[i] = button;
-                scrollLayout.addView(historyText[i]);
-                i++;
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "File is null!", Toast.LENGTH_LONG).show();
+                }
+                i = i + 1;
             }
         }
 
-//        Button [] historyText = new Button[30];
-//        for (int i = 0; i < 30; i++) {
-//            Button button = new Button(getApplicationContext());
-//            button.setText("Button " + i);
-//            historyText[i] = button;
-//            scrollLayout.addView(historyText[i]);
-//        }
+
         addNoteBtn = findViewById(R.id.createBtn);
         addNoteBtn.setOnClickListener(new View.OnClickListener() {
             @Override

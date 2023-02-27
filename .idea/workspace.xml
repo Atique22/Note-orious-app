@@ -4,19 +4,28 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6805e0cd-1c47-4c7b-ab22-6b899be86708" name="Changes" comment="" />
+    <list default="true" id="6805e0cd-1c47-4c7b-ab22-6b899be86708" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Noteorious/app/src/main/java/com/pakistan/bsce19008/note_orious/MainActivityView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Noteorious/app/src/main/res/layout/activity_main_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noteorious/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Noteorious/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noteorious/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Noteorious/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noteorious/app/src/main/java/com/pakistan/bsce19008/note_orious/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Noteorious/app/src/main/java/com/pakistan/bsce19008/note_orious/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noteorious/app/src/main/java/com/pakistan/bsce19008/note_orious/MainActivityEditing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Noteorious/app/src/main/java/com/pakistan/bsce19008/note_orious/MainActivityEditing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noteorious/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Noteorious/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Noteorious" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MBdZMSUcikZY5nyKXqwBQBMHg2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
